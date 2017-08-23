@@ -630,12 +630,18 @@ function print_path(a_path)
 
   if((indicator == "+") || (indicator == " "))
   {
+    gsub("+", " ", $0);
     print_path(path);
+    printf(indicator);
+    printf(" ");
     print_line_number(line++);
   }
   else if((indicator == "-") || (indicator == "\\"))
   {
+    gsub("-", " ", $0);
     print_path(path);
+    printf(indicator);
+    printf(" ");
     # Fill the line number section with padding.
     print_line_number(sprintf("%" length((line + 1) "") "s", " "));
   }
